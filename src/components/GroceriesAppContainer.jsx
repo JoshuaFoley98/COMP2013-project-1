@@ -83,7 +83,9 @@ export default function GroceriesAppContainer({data}){
         //set the cart to new variable
         setCart(filteredCart);
     }
-
+    const handleEmptyCart = () => {
+        setCart([])
+    }
     return <div> 
         <div>
             <NavBar cartlength = {cart.length}/>
@@ -101,7 +103,7 @@ export default function GroceriesAppContainer({data}){
         <div className="CartContainer">
         <p>Cart Items: {cart.length}</p>
         <p>{cart.length === 0 && "No items in Cart"}</p>
-        <CartContainer cart = {cart} handleRemoveFromCart = {handleRemoveFromCart}/>
+        <CartContainer cart = {cart} handleRemoveFromCart = {handleRemoveFromCart} handleEmptyCart = {handleEmptyCart}/>
         </div>
         </div>
 

@@ -11,9 +11,9 @@ import CartCard from "./CartCard";
 //exports to: GroceriesAppContainer.jsx
 //imports: cartcard.jsx
 
-export default function CartContainer({cart, handleRemoveFromCart} ){
+export default function CartContainer({cart, handleRemoveFromCart, handleEmptyCart} ){
     return <div>
         {cart.map((item) => <CartCard key={item.id} {...item}  handleRemoveFromCart = {handleRemoveFromCart}/>)}
-        
+        {cart.length > 0 && <button onClick={() => {handleEmptyCart()}}>Empty Cart</button>}
     </div>
 }
